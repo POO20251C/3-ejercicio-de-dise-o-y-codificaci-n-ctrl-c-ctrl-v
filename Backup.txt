@@ -1,0 +1,102 @@
+//
+// Created by karen on 12/03/2025.
+//
+
+#ifndef PURCHASE_H
+#define PURCHASE_H
+
+#include "Product.h"
+#include "Customer.h"
+#include <vector>
+#include <string>
+using namespace std;
+
+class Purchase {
+public:
+    //constructor
+    Purchase();
+    Purchase(Customer person, string id);
+
+    //getters
+    Customer get_customer();
+    string get_id();
+    vector<Product> get_products();
+
+    //setters
+    void set_customer(Customer person);
+    void set_id(string id);
+
+    //methods
+    string buyProduct(Product product);
+    string toString();
+
+private:
+    Customer person;
+    string id;
+    vector<Product> products; //vector no agregar al const???
+};
+#endif //PURCHASE_H
+
+
+
+//
+// Created by karen on 12/03/2025.
+//
+
+#include "Purchase.h"
+
+//constructors
+Purchase::Purchase(Customer person, string id)
+{
+    this->person = person;
+    this->id = id;
+}
+//getters
+Customer Purchase::get_customer()
+{
+    return person;
+}
+string Purchase::get_id()
+{
+    return id;
+}
+vector<Product> Purchase::get_products()
+{
+    return products;
+}
+//setters
+void Purchase::set_customer(Customer person)
+{
+    this->person = person;
+}
+void Purchase::set_id(string id)
+{
+    this->id = id;
+}
+//methods
+string Purchase::buyProduct(Product product)
+{
+    string ans;
+    if (product.getQuantity() != 0)
+    {
+        products.push_back(product); //Save product in purchase
+        product.decreaseStock(1);
+        ans += "Product added, there are" + to_string(product.getQuantity()) + " left" +  "\n";
+    }else
+    {
+        ans = "No stock";
+    }
+    return ans;
+}
+string Purchase::toString()
+{
+    string ans;
+    ans += person.getName() + " purchased the following products: ";
+    for(std::vector<Product>::iterator it = products.begin(); it != products.end(); it++)
+    {
+        ans += it->getName() + ", ";
+    }
+    ans += "\n";
+    return ans;
+}
+

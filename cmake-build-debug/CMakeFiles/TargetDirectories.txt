@@ -1,0 +1,3 @@
+C:/Users/karen/OneDrive/Escritorio/Tareas/PrimeraTareaPOO/3-ejercicio-de-dise-o-y-codificaci-n-ctrl-c-ctrl-v/cmake-build-debug/CMakeFiles/3_ejercicio_de_dise_o_y_codificaci_n_ctrl_c_ctrl_v.dir
+C:/Users/karen/OneDrive/Escritorio/Tareas/PrimeraTareaPOO/3-ejercicio-de-dise-o-y-codificaci-n-ctrl-c-ctrl-v/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/karen/OneDrive/Escritorio/Tareas/PrimeraTareaPOO/3-ejercicio-de-dise-o-y-codificaci-n-ctrl-c-ctrl-v/cmake-build-debug/CMakeFiles/rebuild_cache.dir
