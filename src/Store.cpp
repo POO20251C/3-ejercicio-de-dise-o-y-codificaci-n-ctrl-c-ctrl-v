@@ -37,6 +37,23 @@ void Store::setAddress(string address)
 }
 
 //methods
+Customer* Store::getCustomerByName(const std::string& name)
+{
+    for (auto& customer : customers) {
+        if (customer.getName() == name) {
+            return &customer; // Retorna un puntero al cliente encontrado
+        }
+    }
+    return nullptr; // Si no se encuentra, retorna un puntero nulo
+}
+Product* Store::getProductByName(const std::string& name) {
+    for (auto& product : products) {
+        if (product.getName() == name) {
+            return &product; // Retorna un puntero al producto encontrado
+        }
+    }
+    return nullptr; // Si no se encuentra, retorna un puntero nulo
+}
 string Store::registerCustomer(Customer customer)
 {
     if (customer.getName() != "")

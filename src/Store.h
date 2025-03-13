@@ -25,6 +25,8 @@ public:
     void setName(string name);
     void setAddress(string address);
     //methods
+    Customer* getCustomerByName(const std::string& name); // Declaración de la función
+    Product* getProductByName(const std::string& name); // Declaración de la función
     string registerCustomer(Customer customer);
     string registerProduct(Product product);
     string showCustomers();
