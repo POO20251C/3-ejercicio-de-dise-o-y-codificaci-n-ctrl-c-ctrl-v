@@ -33,7 +33,7 @@ string Purchase::buyProduct(Product product, int number)
     {
         products.push_back(product); //Save product in purchase
         product.decreaseStock(number);
-        ans += "Product added, there are" + to_string(product.getQuantity()) + " left" +  "\n";
+        ans += "Product added, there are " + to_string(product.getQuantity()) + " left" +  "\n";
     }else
     {
         ans = "No stock";

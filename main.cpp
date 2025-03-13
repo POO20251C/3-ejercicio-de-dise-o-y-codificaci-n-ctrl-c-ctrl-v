@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include "src/Customer.h"
 #include "src/Product.h"
 #include "src/Purchase.h"
@@ -9,14 +8,14 @@ using namespace std;
 
 void showMenu() {
     cout << "\n===== MENU =====" << endl;
-    cout << "1. Registrar cliente" << endl;
-    cout << "2. Agregar producto al sistema" << endl;
-    cout << "3. Mostrar productos con existencia" << endl;
-    cout << "4. Registrar compra de un cliente" << endl;
-    cout << "5. Consultar compras de un cliente" << endl;
-    cout << "6. Mostrar clientes registrados" << endl;
-    cout << "7. Salir" << endl;
-    cout << "Ingrese una opción: ";
+    cout << "1. Register customer" << endl;
+    cout << "2. Add product to the system" << endl;
+    cout << "3. Show products in stock" << endl;
+    cout << "4. Register a customer purchase" << endl;
+    cout << "5. View customer purchases" << endl;
+    cout << "6. Show registered customers" << endl;
+    cout << "7. Exit" << endl;
+    cout << "Enter an option: ";
 }
 
 int main() {
@@ -31,24 +30,24 @@ int main() {
         switch (option) {
             case 1: {
                 string name, id;
-                cout << "Ingrese el nombre del cliente: ";
+                cout << "Enter customer name: ";
                 getline(cin, name);
-                cout << "Ingrese el ID del cliente: ";
+                cout << "Enter customer ID: ";
                 getline(cin, id);
                 myStore.registerCustomer(Customer(name, id));
-                cout << "Cliente registrado exitosamente." << endl;
+                cout << "Customer registered successfully." << endl;
                 break;
             }
             case 2: {
                 string productName;
                 int price, stock;
-                cout << "Ingrese el nombre del producto: ";
+                cout << "Enter product name: ";
                 getline(cin, productName);
-                cout << "Ingrese la cantidad en existencia: ";
+                cout << "Enter stock quantity: ";
                 cin >> stock;
                 cin.ignore();
                 myStore.registerProduct(Product(productName, stock));
-                cout << "Producto agregado exitosamente." << endl;
+                cout << "Product added successfully." << endl;
                 break;
             }
             case 3:
@@ -57,32 +56,32 @@ int main() {
             case 4: {
                 string customerName;
                 int numProducts;
-                cout << "Ingrese el nombre del cliente: ";
+                cout << "Enter customer name: ";
                 getline(cin, customerName);
                 Customer* customer = myStore.getCustomerByName(customerName);
                 if (!customer) {
-                    cout << "Cliente no encontrado." << endl;
+                    cout << "Customer not found." << endl;
                     break;
                 }
                 Purchase purchase(customerName);
-                cout << "Ingrese la cantidad de productos a comprar: ";
+                cout << "Enter the number of products to purchase: ";
                 cin >> numProducts;
                 cin.ignore();
                 for (int i = 0; i < numProducts; i++) {
                     string productName;
                     int quantity;
-                    cout << "Ingrese el nombre del producto: ";
+                    cout << "Enter product name: ";
                     getline(cin, productName);
-                    cout << " y cuantos quiere?: ";
+                    cout << "Enter quantity: ";
                     cin >> quantity;
                     cin.ignore();
                     Product* product = myStore.getProductByName(productName);
                     if (!product) {
-                        cout << "Producto no encontrado." << endl;
+                        cout << "Product not found." << endl;
                         continue;
                     }
                     if (product->getQuantity() < quantity) {
-                        cout << "No hay suficiente stock de " << productName << endl;
+                        cout << "Not enough stock for " << productName << endl;
                         continue;
                     }
                     cout << purchase.buyProduct(*product, quantity) << endl;
@@ -93,13 +92,13 @@ int main() {
             }
             case 5: {
                 string customerName;
-                cout << "Ingrese el nombre del cliente: ";
+                cout << "Enter customer name: ";
                 getline(cin, customerName);
                 Customer* customer = myStore.getCustomerByName(customerName);
                 if (customer) {
-                    cout << customer->getName() + " ha comprado: " + customer->showPurchases() << endl;
+                    cout << customer->getName() + " has purchased: " + customer->showPurchases() << endl;
                 } else {
-                    cout << "Cliente no encontrado." << endl;
+                    cout << "Customer not found." << endl;
                 }
                 break;
             }
@@ -107,10 +106,10 @@ int main() {
                 cout << myStore.showCustomers() << endl;
                 break;
             case 7:
-                cout << "Saliendo del sistema..." << endl;
+                cout << "Exiting the system..." << endl;
                 break;
             default:
-                cout << "Opción inválida, intente de nuevo." << endl;
+                cout << "Invalid option, please try again." << endl;
         }
     } while (option != 7);
 
