@@ -3,7 +3,7 @@
 #include "src/Customer.h"
 #include "src/Product.h"
 #include "src/Purchase.h"
-
+#include "src/Store.h"
 
 
 int main()
@@ -19,6 +19,18 @@ int main()
     cout << Mariana.toString() << endl;
     Customer Karen("Karen", "654321");
     cout << Karen.toString() << endl;
+
+    Store myStore("Nikke", "123456");
+    myStore.registerProduct(product1);
+    myStore.registerProduct(product2);
+    myStore.registerProduct(product3);
+    myStore.registerProduct(product4);
+    myStore.registerProduct(product5);
+    myStore.registerCustomer(Mariana);
+    myStore.registerCustomer(Karen);
+
+    cout << myStore.showProducts()<< endl;
+    cout << myStore.showCustomers()<< endl;
 
     Purchase bagMari("Mariana");
     cout << bagMari.buyProduct(product1,1)<< endl;

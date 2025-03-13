@@ -29,7 +29,7 @@ vector<Product> Purchase::get_products()
 string Purchase::buyProduct(Product product, int number)
 {
     string ans;
-    if (product.getQuantity() != 0)
+    if (product.getQuantity() > 0)
     {
         products.push_back(product); //Save product in purchase
         product.decreaseStock(number);

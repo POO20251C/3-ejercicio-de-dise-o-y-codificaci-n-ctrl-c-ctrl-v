@@ -70,7 +70,7 @@ string Store::showCustomers()
     {
         for (size_t i = 0; i < customers.size(); i++)
         {
-            ans += customers[i].toString() + "\n";
+            ans += to_string(i+1) + ". " + customers[i].toString() + "\n";
         }
     }
     return ans;
@@ -86,7 +86,7 @@ string Store::showProducts()
     {
         for (size_t i = 0; i < products.size(); i++)
         {
-            ans += products[i].toString() + "\n";
+            ans += to_string(i+1) + ". " + products[i].toString() + "\n";
         }
     }
     return ans;
